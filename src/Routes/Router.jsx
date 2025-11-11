@@ -5,6 +5,8 @@ import AllReviews from "../Pages/AllReviews";
 import { Suspense } from "react";
 import LoadingPage from "../Components/LoadingPage";
 import ErrorPage from "../Components/ErrorPage";
+import About from "../Pages/About";
+import ReservationSection from "../Components/ReservationSection";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +29,14 @@ export const router = createBrowserRouter([
             <AllReviews></AllReviews>
           </Suspense>
         ),
+      },
+      {
+        path: "/about",
+        element: <About></About>,
+      },
+      {
+        path: "/reservation",
+        element: <ReservationSection></ReservationSection>,
       },
     ],
   },

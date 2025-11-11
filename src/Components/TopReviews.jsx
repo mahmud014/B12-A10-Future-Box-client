@@ -32,7 +32,10 @@ const TopReviews = () => {
         ))}
       </div>
       <div className="text-center mt-10">
-        <Link to="/allreviews" className="btn btn-outline hover:btn-primary">
+        <Link
+          to="/allreviews"
+          className="btn btn-outline btn-primary hover:btn-primary"
+        >
           Show All
         </Link>
       </div>
