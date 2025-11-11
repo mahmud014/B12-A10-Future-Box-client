@@ -4,6 +4,7 @@ import WhyChoose from "../Components/WhyChoose";
 import SpecialMenu from "../Components/SpecialMenu";
 import TopReviews from "../Components/TopReviews";
 import ReservationSection from "../Components/ReservationSection";
+import LocationSection from "../Components/LocationSection";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <SpecialMenu></SpecialMenu>
       <ReservationSection></ReservationSection>
       <WhyChoose></WhyChoose>
+      <LocationSection></LocationSection>
     </div>
   );
 };
