@@ -4,12 +4,13 @@ import Home from "../Pages/Home";
 import AllReviews from "../Pages/AllReviews";
 import { Suspense } from "react";
 import LoadingPage from "../Components/LoadingPage";
+import ErrorPage from "../Components/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    errorElement: <p>error page</p>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,
