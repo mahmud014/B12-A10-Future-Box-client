@@ -9,6 +9,8 @@ import About from "../Pages/About";
 import ReservationSection from "../Components/ReservationSection";
 import Contact from "../Pages/Contact";
 import Jobs from "../Pages/Job";
+import LoginPage from "../Pages/LoginPage";
+import RegisterPage from "../Pages/RegisterPage";
 
 export const router = createBrowserRouter([
   {
@@ -47,6 +49,14 @@ export const router = createBrowserRouter([
       {
         path: "/jobs",
         element: <Jobs></Jobs>,
+      },
+      {
+        path: "/login",
+        element: <LoginPage></LoginPage>,
+      },
+      {
+        path: "/register",
+        element: <RegisterPage></RegisterPage>,
       },
     ],
   },
