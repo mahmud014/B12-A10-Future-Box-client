@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router";
 import Root from "../LayOuts/Root";
 import Home from "../Pages/Home";
 import AllReviews from "../Pages/AllReviews";
+import { Suspense } from "react";
+import LoadingPage from "../Components/LoadingPage";
 
 export const router = createBrowserRouter([
   {
@@ -11,11 +13,19 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home></Home>,
+        element: (
+          <Suspense fallback={<LoadingPage></LoadingPage>}>
+            <Home></Home>
+          </Suspense>
+        ),
       },
       {
         path: "/allreviews",
-        element: <AllReviews></AllReviews>,
+        element: (
+          <Suspense fallback={<LoadingPage></LoadingPage>}>
+            <AllReviews></AllReviews>
+          </Suspense>
+        ),
       },
     ],
   },
