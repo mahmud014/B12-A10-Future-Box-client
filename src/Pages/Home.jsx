@@ -3,6 +3,7 @@ import HeroSlider from "../Components/HeroSlider";
 import WhyChoose from "../Components/WhyChoose";
 import SpecialMenu from "../Components/SpecialMenu";
 import TopReviews from "../Components/TopReviews";
+import ReservationSection from "../Components/ReservationSection";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
         <TopReviews></TopReviews>
       </div>
       <SpecialMenu></SpecialMenu>
+      <ReservationSection></ReservationSection>
       <WhyChoose></WhyChoose>
     </div>
   );
