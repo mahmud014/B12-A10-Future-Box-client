@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import ReviewCard from "../Components/ReviewCard";
+import NoReviews from "../Components/NoReviews";
 
 const AllReviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -128,7 +129,9 @@ const AllReviews = () => {
             ))}
           </div>
         ) : (
-          <p className="text-center text-gray-500 mt-8">No reviews found.</p>
+          <p className="text-center text-gray-500 mt-8">
+            <NoReviews></NoReviews>
+          </p>
         )}
       </div>
     </section>

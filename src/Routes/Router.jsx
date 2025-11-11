@@ -7,6 +7,8 @@ import LoadingPage from "../Components/LoadingPage";
 import ErrorPage from "../Components/ErrorPage";
 import About from "../Pages/About";
 import ReservationSection from "../Components/ReservationSection";
+import Contact from "../Pages/Contact";
+import Jobs from "../Pages/Job";
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +39,14 @@ export const router = createBrowserRouter([
       {
         path: "/reservation",
         element: <ReservationSection></ReservationSection>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
+      },
+      {
+        path: "/jobs",
+        element: <Jobs></Jobs>,
       },
     ],
   },
