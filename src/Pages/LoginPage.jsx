@@ -1,13 +1,51 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Context/AuthContext";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPass, setShowPass] = useState(false);
+  const navigate = useNavigate();
+  const { signInWithGoogle } = use(AuthContext);
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+      .then((result) => {
+        const user = result.user;
+
+        Swal.fire({
+          icon: "success",
+          title: "Welcome!",
+          html: `
+            <p><strong>${user.displayName}</strong></p>
+            <p>${user.email}</p>
+          `,
+          confirmButtonColor: "#f97316",
+        });
+        navigate("/");
+      })
+      .catch((error) => {
+        let message = "Something went wrong. Please try again.";
+        if (error.code === "auth/popup-closed-by-user") {
+          message =
+            "You closed the Google Sign-In popup before finishing. Please try again.";
+        } else if (error.code === "auth/network-request-failed") {
+          message = "Network issue! Please check your internet connection.";
+        } else if (error.code === "auth/popup-blocked") {
+          message =
+            "Your browser blocked the sign-in popup. Please allow popups and try again.";
+        }
+        Swal.fire({
+          icon: "error",
+          title: "Login Failed!",
+          text: message,
+          confirmButtonColor: "#ef4444",
+        });
+      });
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -80,7 +118,10 @@ const LoginPage = () => {
         </form>
         <div className="divider">OR</div>
         <div>
-          <button className="btn w-full bg-white text-black border-[#e5e5e5]">
+          <button
+            onClick={handleGoogleSignIn}
+            className="btn w-full bg-white text-black border-[#e5e5e5]"
+          >
             <FcGoogle size={30} />
             Sign in with Google
           </button>

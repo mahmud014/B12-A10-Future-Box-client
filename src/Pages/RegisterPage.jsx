@@ -32,6 +32,7 @@ const RegisterPage = () => {
         `,
           confirmButtonColor: "#f97316",
         });
+        navigate("/");
       })
       .catch((error) => {
         let message = "Something went wrong. Please try again.";
