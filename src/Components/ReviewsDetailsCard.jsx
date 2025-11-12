@@ -25,11 +25,15 @@ const ReviewDetailsCard = ({ review }) => {
             <span className="font-semibold">Location:</span>{" "}
             {review.restaurant_location}
           </p>
-          <p className="text-gray-700 mb-4">{review.description}</p>
+          <p className="text-gray-700 mb-4">
+            <span className="font-semibold">Description:</span>{" "}
+            {review.description}
+          </p>
           <p className="text-xl font-semibold text-primary mb-2">
             Price: {review.price} BDT
           </p>
           <div className="flex flex-wrap gap-2 mb-3">
+            <p className="text-xl font-semibold mb-2">Tags:</p>
             {review.tags &&
               review.tags.map((tag, idx) => (
                 <span
@@ -58,6 +62,7 @@ const ReviewDetailsCard = ({ review }) => {
           <div className="border-t pt-3 mt-3">
             <p className="font-semibold">{review.reviewer_name}</p>
             <p className="text-gray-600 text-sm">
+              <span className="font-semibold">Date: </span>
               {new Date(review.review_date).toLocaleDateString()}
             </p>
             <p className="mt-1 text-gray-700">{review.review_text}</p>

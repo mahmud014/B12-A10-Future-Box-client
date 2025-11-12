@@ -20,7 +20,7 @@ const ReviewsDetails = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 mt-5">
+    <div className="min-h-screen bg-white mt-5">
       <ReviewsDetailsCard review={review} />
 
       <div className="text-center mt-10">

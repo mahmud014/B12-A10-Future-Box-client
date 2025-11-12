@@ -12,6 +12,7 @@ const Home = () => {
     <div className="bg-base-200">
       <HeroSlider></HeroSlider>
       <OfferSection></OfferSection>
+
       <div className="container mx-auto">
         <TopReviews></TopReviews>
       </div>
