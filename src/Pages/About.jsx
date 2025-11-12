@@ -5,25 +5,33 @@ const About = () => {
   const navigate = useNavigate();
 
   // Correct image URLs
-  const heroImage = "https://i.ibb.co/Y7sMhkJ5/restaurant-interior.jpg";
+
   const chefImage =
     "https://i.ibb.co/WpkG5142/side-view-mushroom-frying-with-stove-fire-human-hand-pan.jpg";
 
   return (
     <section className="bg-base-100 min-h-screen">
       {/* Hero Section */}
-      <div
-        className="relative h-[60vh] md:h-[80vh] bg-cover bg-center flex items-center justify-center text-white"
-        style={{
-          backgroundImage: `url(${heroImage})`,
-        }}
-      >
-        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
-        <div className="relative z-10 text-center px-4">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">
-            About <span className="text-orange-500">DishDive</span>
+      <div className="relative h-[70vh] md:h-[90vh] flex items-center justify-center text-white overflow-hidden">
+        {/* Background Image Layer */}
+        <div
+          className="absolute inset-0 bg-center bg-cover"
+          style={{
+            backgroundImage:
+              "url('https://i.ibb.co/Y7sMhkJ5/restaurant-interior.jpg')",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            filter: "brightness(60%)",
+          }}
+        ></div>
+
+        {/* Content Layer */}
+        <div className="relative z-10 text-center px-6 max-w-3xl">
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-4">
+            About Dish<span className="text-orange-500">Dive</span>
           </h1>
-          <p className="text-gray-200 max-w-2xl mx-auto">
+          <p className="text-gray-200 text-lg">
             Discover who we are, what drives us, and why our dishes bring people
             together in every bite.
           </p>
