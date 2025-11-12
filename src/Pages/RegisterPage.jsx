@@ -1,6 +1,6 @@
 import React, { use, useState } from "react";
 import Swal from "sweetalert2";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../Context/AuthContext";
@@ -16,6 +16,7 @@ const RegisterPage = () => {
   const [showConfirm, setShowConfirm] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const { signInWithGoogle, createUser } = use(AuthContext);
 
@@ -33,7 +34,7 @@ const RegisterPage = () => {
         `,
           confirmButtonColor: "#f97316",
         });
-        navigate("/");
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
         let message = "Something went wrong. Please try again.";
@@ -125,7 +126,7 @@ const RegisterPage = () => {
         setEmail("");
         setPassword("");
         setPhoto("");
-        navigate("/login");
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
         let message = "";

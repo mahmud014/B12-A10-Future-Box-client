@@ -1,7 +1,7 @@
 import React, { use, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Context/AuthContext";
 
@@ -10,6 +10,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [showPass, setShowPass] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
   const { signInWithGoogle, signInUser, resetPassword } = use(AuthContext);
 
   const handleGoogleSignIn = () => {
@@ -26,7 +27,7 @@ const LoginPage = () => {
           `,
           confirmButtonColor: "#f97316",
         });
-        navigate("/");
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
         let message = "Something went wrong. Please try again.";
@@ -74,7 +75,7 @@ const LoginPage = () => {
         `,
           confirmButtonColor: "#ff6900",
         }).then(() => {
-          navigate("/");
+          navigate(`${location.state ? location.state : "/"}`);
         });
       })
       .catch((error) => {

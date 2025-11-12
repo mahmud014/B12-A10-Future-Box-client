@@ -23,7 +23,7 @@ const ReviewsDetails = () => {
     <div className="min-h-screen bg-gray-50 mt-5">
       <ReviewsDetailsCard review={review} />
 
-      <div className="text-center mt-6">
+      <div className="text-center mt-10">
         <Link
           to="/"
           className="text-orange-500 font-semibold underline hover:text-orange-600"

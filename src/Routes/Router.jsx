@@ -12,6 +12,7 @@ import Jobs from "../Pages/Job";
 import LoginPage from "../Pages/LoginPage";
 import RegisterPage from "../Pages/RegisterPage";
 import ReviewsDetails from "../Pages/ReviewsDetails";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -61,7 +62,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/reviewsdetails/:id",
-        element: <ReviewsDetails></ReviewsDetails>,
+        element: (
+          <PrivateRoute>
+            <ReviewsDetails></ReviewsDetails>
+          </PrivateRoute>
+        ),
         loader: () => fetch("http://localhost:5000/reviews"),
       },
     ],
