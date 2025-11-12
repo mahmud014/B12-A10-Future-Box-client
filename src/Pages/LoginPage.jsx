@@ -10,7 +10,8 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [showPass, setShowPass] = useState(false);
   const navigate = useNavigate();
-  const { signInWithGoogle } = use(AuthContext);
+  const { signInWithGoogle, signInUser, resetPassword } = use(AuthContext);
+
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((result) => {
@@ -49,23 +50,113 @@ const LoginPage = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
+
+    if (!email || !password) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please enter both email and password!",
+      });
+      return;
+    }
+
+    signInUser(email, password)
+      .then((result) => {
+        const user = result.user;
+
+        Swal.fire({
+          icon: "success",
+          title: "Login Successful 🎉",
+          html: `
+          <p>Welcome, <b>${user.displayName || user.email}</b></p>
+          <p>Email: ${user.email}</p>
+          <p>Photo: ${user.photoURL || "N/A"}</p>
+        `,
+          confirmButtonColor: "#ff6900",
+        }).then(() => {
+          navigate("/");
+        });
+      })
+      .catch((error) => {
+        let message = "";
+
+        switch (error.code) {
+          case "auth/user-not-found":
+            message = "No account found with this email.";
+            break;
+          case "auth/wrong-password":
+            message = "Incorrect password. Please try again.";
+            break;
+          case "auth/invalid-email":
+            message = "Please enter a valid email address.";
+            break;
+          case "auth/too-many-requests":
+            message = "Too many attempts. Please try again later.";
+            break;
+          case "auth/network-request-failed":
+            message = "Network error. Please check your internet connection.";
+            break;
+          case "auth/invalid-credential":
+            message = "Please Provide Valid credential.";
+            break;
+          default:
+            message = error.message;
+        }
+
+        Swal.fire({
+          icon: "error",
+          title: "Login Failed",
+          text: message,
+        });
+      });
   };
+
   const handleForgotPassword = () => {
     if (!email) {
       Swal.fire({
         icon: "info",
         title: "Enter Email",
         text: "Please enter your email to reset password.",
+        confirmButtonColor: "#f97316",
       });
       return;
     }
 
-    Swal.fire({
-      icon: "success",
-      title: "Reset Link Sent",
-      text: `A password reset link has been sent to ${email}.`,
-      confirmButtonColor: "#f97316",
-    });
+    resetPassword(email)
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "Reset Link Sent",
+          text: `A password reset link has been sent to ${email}. Please check your inbox.`,
+          confirmButtonColor: "#ff6900",
+        });
+        setTimeout(() => {
+          window.open("https://mail.google.com", "_blank");
+        }, 1500);
+      })
+      .catch((error) => {
+        let message = "";
+        switch (error.code) {
+          case "auth/user-not-found":
+            message = "No account found with this email.";
+            break;
+          case "auth/invalid-email":
+            message = "Please enter a valid email address.";
+            break;
+          case "auth/network-request-failed":
+            message = "Network error! Please check your internet connection.";
+            break;
+          default:
+            message = error.message;
+        }
+
+        Swal.fire({
+          icon: "error",
+          title: "Failed to Send Reset Link",
+          text: message,
+          confirmButtonColor: "#ff6900",
+        });
+      });
   };
 
   return (

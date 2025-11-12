@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../Context/AuthContext";
+import { updateProfile } from "firebase/auth";
 
 const RegisterPage = () => {
   const [name, setName] = useState("");
@@ -16,7 +17,7 @@ const RegisterPage = () => {
 
   const navigate = useNavigate();
 
-  const { signInWithGoogle } = use(AuthContext);
+  const { signInWithGoogle, createUser } = use(AuthContext);
 
   const handleGoogleSignIn = () => {
     signInWithGoogle()
@@ -65,23 +66,93 @@ const RegisterPage = () => {
       });
       return;
     }
-    Swal.fire({
-      icon: "success",
-      title: "Registration Successful",
-      html: `
+    if (password !== confirm) {
+      Swal.fire({
+        icon: "warning",
+        title: "Password Mismatch",
+        text: "Confirm Password does not match the Password!",
+        confirmButtonColor: "#f97316",
+      });
+      return;
+    }
+    const passwordPattern =
+      /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+\-={}[\]|\\:;"'<>,.?/]).{6,}$/;
+
+    if (!passwordPattern.test(password)) {
+      Swal.fire({
+        icon: "warning",
+        title: "Weak Password",
+        html: `
+        <p>Your password must include:</p>
+        <ul style="text-align:left; display:inline-block">
+          <li>✅ At least 6 characters</li>
+          <li>✅ One uppercase letter</li>
+          <li>✅ One lowercase letter</li>
+          <li>✅ One number</li>
+          <li>✅ One special character</li>
+        </ul>
+      `,
+        confirmButtonColor: "#f97316",
+      });
+      return;
+    }
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+
+        // 🔹 Update displayName and photoURL in Firebase Auth
+        return updateProfile(user, {
+          displayName: name,
+          photoURL: photo || "",
+        });
+      })
+      .then(() => {
+        return Swal.fire({
+          icon: "success",
+          title: "Registration Successful 🎉",
+          html: `
         <p>Name: ${name}</p>
         <p>Email: ${email}</p>
         <p>Photo URL: ${photo || "N/A"}</p>
-        
       `,
-      confirmButtonColor: "#f97316",
-    }).then(() => {
-      setName("");
-      setEmail("");
-      setPassword("");
-      setPhoto("");
-      navigate("/login");
-    });
+          confirmButtonColor: "#f97316",
+        });
+      })
+      .then(() => {
+        // 🔹 Clear form and redirect
+        setName("");
+        setEmail("");
+        setPassword("");
+        setPhoto("");
+        navigate("/login");
+      })
+      .catch((error) => {
+        let message = "";
+
+        switch (error.code) {
+          case "auth/email-already-in-use":
+            message =
+              "This email is already registered. Please login or use another email.";
+            break;
+          case "auth/invalid-email":
+            message = "Please enter a valid email address.";
+            break;
+          case "auth/weak-password":
+            message = "Password is too weak. Minimum 6 characters required.";
+            break;
+          case "auth/network-request-failed":
+            message = "Network error. Please check your internet connection.";
+            break;
+          default:
+            message = error.message;
+        }
+        Swal.fire({
+          icon: "error",
+          title: "Registration Failed",
+          text: message,
+        });
+      });
   };
 
   return (
