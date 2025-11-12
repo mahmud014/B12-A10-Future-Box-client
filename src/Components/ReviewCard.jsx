@@ -37,7 +37,7 @@ const ReviewCard = ({ review }) => {
         {/* Buttons */}
         <div className="flex justify-between items-center">
           <Link
-            to={`/reviews/${review._id}`}
+            to={`/reviewsdetails/${review._id}`}
             className="btn btn-sm btn-primary"
           >
             View Details
