@@ -13,7 +13,6 @@ const AllReviews = () => {
 
   const navigate = useNavigate();
 
-  // Fetch reviews from API
   useEffect(() => {
     setLoading(true);
     fetch("http://localhost:5000/reviews")
@@ -35,7 +34,7 @@ const AllReviews = () => {
 
   // Filter + sort logic
   useEffect(() => {
-    setLoading(true); // start loading when searching
+    setLoading(true);
     const delayDebounce = setTimeout(() => {
       let filtered = reviews.filter(
         (r) =>

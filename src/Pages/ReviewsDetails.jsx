@@ -1,8 +1,9 @@
 import React from "react";
-import { useLoaderData, useParams, Link } from "react-router-dom";
+import { useLoaderData, useParams, Link, useNavigate } from "react-router-dom";
 import ReviewsDetailsCard from "../Components/ReviewsDetailsCard";
 
 const ReviewsDetails = () => {
+  const navigate = useNavigate();
   const reviews = useLoaderData();
   const { id } = useParams();
 
@@ -25,10 +26,10 @@ const ReviewsDetails = () => {
 
       <div className="text-center mt-10">
         <Link
-          to="/"
+          onClick={() => navigate(-1)}
           className="text-orange-500 font-semibold underline hover:text-orange-600"
         >
-          ← Back to Home
+          ← Go Back
         </Link>
       </div>
     </div>

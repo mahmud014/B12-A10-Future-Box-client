@@ -13,6 +13,9 @@ import LoginPage from "../Pages/LoginPage";
 import RegisterPage from "../Pages/RegisterPage";
 import ReviewsDetails from "../Pages/ReviewsDetails";
 import PrivateRoute from "./PrivateRoute";
+import AddReview from "../Pages/AddReview";
+import MyReviews from "../Pages/MyReviews";
+import EditReview from "../Components/EditReview";
 
 export const router = createBrowserRouter([
   {
@@ -68,6 +71,33 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: () => fetch("http://localhost:5000/reviews"),
+      },
+      {
+        path: "/addreview",
+        element: (
+          <PrivateRoute>
+            <AddReview></AddReview>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/myreviews",
+        element: (
+          <PrivateRoute>
+            <MyReviews></MyReviews>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/editreview/:id",
+        hydrateFallbackElement: <LoadingPage></LoadingPage>,
+        element: (
+          <PrivateRoute>
+            <EditReview></EditReview>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/reviews/${params.id}`),
       },
     ],
   },

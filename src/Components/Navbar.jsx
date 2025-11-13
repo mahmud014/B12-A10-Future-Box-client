@@ -108,14 +108,14 @@ const Navbar = () => {
                 className="dropdown-content menu p-2 shadow bg-white rounded-box w-52 mt-2"
               >
                 <li>
-                  <a href="/add-review" className="hover:bg-orange-100">
+                  <Link to="/addreview" className="hover:bg-orange-100">
                     Add Review
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/my-reviews" className="hover:bg-orange-100">
+                  <Link to="/myreviews" className="hover:bg-orange-100">
                     My Reviews
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <button
