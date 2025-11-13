@@ -1,16 +1,73 @@
-# React + Vite
+🍽️ DishDive – Restaurant Food Review Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+DishDive is a modern web application that allows users to explore, review, and favorite their favorite restaurant dishes.
+Users can browse food reviews, add their own, mark dishes as favorites, and view detailed information for each meal.
 
-Currently, two official plugins are available:
+🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🧾 All Reviews Page – Displays all user reviews with search functionality (MongoDB $regex search).
 
-## React Compiler
+🔍 Search System – Search by food name; server-side filtering ensures accuracy and performance.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+❤️ Favorites System – Add/remove favorites; displayed in a separate “My Favorites” page.
 
-## Expanding the ESLint configuration
+👤 User Authentication – Firebase authentication (Google or email/password).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+✏️ Add Review Page – Logged-in users can post new food reviews.
+
+🗑️ My Reviews Page – Users can edit or delete their own reviews.
+
+💬 Review Details Page – Shows full information about a single food review.
+
+🏠 Home Page – Attractive hero slider, featured sections, and restaurant highlights.
+
+⚡ Responsive Design – Mobile-friendly UI with TailwindCSS & DaisyUI.
+
+🌐 Deployed on Vercel – Both server and client sides are hosted online for global access.
+
+🛠️ Tech Stack
+Frontend
+
+⚛️ React (Vite)
+
+🌈 Tailwind CSS
+
+💎 DaisyUI
+
+🔄 React Router DOM
+
+🔔 SweetAlert2 (for alerts & confirmations)
+
+⭐ React Icons (for UI icons)
+
+Backend
+
+🟢 Node.js
+
+🚀 Express.js
+
+🍃 MongoDB (Atlas)
+
+🌐 CORS
+
+🔐 dotenv (for environment variables)
+
+Authentication
+
+🔥 Firebase Authentication (Email/Password, Google)
+
+Hosting / Deployment
+
+🖥️ Frontend: Vercel
+
+🗄️ Backend API: Vercel Server
+
+☁️ Database: MongoDB Atlas
+
+🧑‍💻 Developer
+
+Author: Anik Mahmud
+📧 [Your Email or Portfolio link]
+🌍 Live Site: https://dish-dive.vercel.app
+
+⚙️ API Base URL: https://dish-dive-server.vercel.app
