@@ -16,6 +16,7 @@ import PrivateRoute from "./PrivateRoute";
 import AddReview from "../Pages/AddReview";
 import MyReviews from "../Pages/MyReviews";
 import EditReview from "../Components/EditReview";
+import MyFavorites from "../Pages/MyFavorites";
 
 export const router = createBrowserRouter([
   {
@@ -98,6 +99,10 @@ export const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/reviews/${params.id}`),
+      },
+      {
+        path: "/myfavorites",
+        element: <MyFavorites />,
       },
     ],
   },

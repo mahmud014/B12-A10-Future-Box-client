@@ -56,6 +56,13 @@ const Navbar = () => {
       <li>
         <NavLink to="/about">About</NavLink>
       </li>
+      {user && user ? (
+        <li>
+          <NavLink to="/myfavorites">My Favorites</NavLink>
+        </li>
+      ) : (
+        ""
+      )}
     </>
   );
   return (

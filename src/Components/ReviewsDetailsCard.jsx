@@ -1,6 +1,5 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
-import { Link } from "react-router";
 
 const ReviewDetailsCard = ({ review }) => {
   return (
@@ -34,7 +33,7 @@ const ReviewDetailsCard = ({ review }) => {
             Price: {review.price} BDT
           </p>
           <div className="flex flex-wrap gap-2 mb-3">
-            <p className="text-xl font-semibold mb-2">Tags:</p>
+            <p className="text-xl font-semibold">Tags-</p>
             {review.tags &&
               review.tags.map((tag, idx) => (
                 <span
@@ -63,14 +62,14 @@ const ReviewDetailsCard = ({ review }) => {
           <div className="border-t pt-3 mt-3">
             <p className="font-semibold">{review.reviewer_name}</p>
             <p className="text-gray-600 text-sm">
-              <span className="font-semibold">Date: </span>
+              <span className="font-semibold">Date:</span>{" "}
               {new Date(review.review_date).toLocaleDateString()}
             </p>
-            <p className="mt-1 text-gray-700">{review.review_text}</p>
+            <p className="mt-1 text-gray-700">
+              <span className="font-semibold">Review Text:</span>{" "}
+              {review.review_text}
+            </p>
           </div>
-        </div>
-        <div>
-          <button className="btn btn-primary">Add to favourite</button>
         </div>
       </div>
     </div>
