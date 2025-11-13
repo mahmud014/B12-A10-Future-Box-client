@@ -31,11 +31,14 @@ const EditReview = () => {
     };
 
     try {
-      const res = await fetch(`http://localhost:5000/reviews/${id}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(updated),
-      });
+      const res = await fetch(
+        `https://dish-dive-server.vercel.app/reviews/${id}`,
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updated),
+        }
+      );
       const data = await res.json();
       if (data.modifiedCount || data.matchedCount) {
         Swal.fire("Success", "Review updated!", "success").then(() =>

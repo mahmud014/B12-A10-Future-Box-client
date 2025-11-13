@@ -6,7 +6,7 @@ const OfferSection = () => {
 
   useEffect(() => {
     // Replace with your API endpoint if you have one
-    fetch("http://localhost:5000/offers")
+    fetch("https://dish-dive-server.vercel.app/offers")
       .then((res) => res.json())
       .then((data) => setOffers(data))
       .catch((err) => console.error("Failed to load offers:", err));

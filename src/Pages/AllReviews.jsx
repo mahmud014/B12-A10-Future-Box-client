@@ -15,7 +15,7 @@ const AllReviews = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:5000/reviews")
+    fetch("https://dish-dive-server.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
@@ -128,9 +128,9 @@ const AllReviews = () => {
             ))}
           </div>
         ) : (
-          <p className="text-center text-gray-500 mt-8">
+          <div className="text-center text-gray-500 mt-8">
             <NoReviews></NoReviews>
-          </p>
+          </div>
         )}
       </div>
     </section>

@@ -9,7 +9,7 @@ const Jobs = () => {
 
   // Fetch jobs from API (MongoDB)
   useEffect(() => {
-    fetch("http://localhost:5000/jobs")
+    fetch("https://dish-dive-server.vercel.app/jobs")
       .then((res) => res.json())
       .then((data) => {
         setJobs(data);

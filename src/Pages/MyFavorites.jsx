@@ -15,7 +15,7 @@ const MyFavorites = () => {
     setLoading(true);
     try {
       const res = await fetch(
-        `http://localhost:5000/favorites?userEmail=${user.email}`
+        `https://dish-dive-server.vercel.app/favorites?userEmail=${user.email}`
       );
       const data = await res.json();
       setFavorites(data);
@@ -46,9 +46,12 @@ const MyFavorites = () => {
 
     try {
       // Send DELETE request to backend
-      const res = await fetch(`http://localhost:5000/favorites/${favoriteId}`, {
-        method: "DELETE",
-      });
+      const res = await fetch(
+        `https://dish-dive-server.vercel.app/favorites/${favoriteId}`,
+        {
+          method: "DELETE",
+        }
+      );
       const data = await res.json();
 
       if (data.deletedCount && data.deletedCount > 0) {

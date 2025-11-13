@@ -7,7 +7,7 @@ const SpecialMenu = () => {
   const [menuItems, setMenuItems] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/menu")
+    fetch("https://dish-dive-server.vercel.app/menu")
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch menu items");
         return res.json();

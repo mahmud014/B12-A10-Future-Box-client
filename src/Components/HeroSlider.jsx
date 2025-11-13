@@ -9,7 +9,7 @@ const HeroSlider = () => {
   const [slides, setSlides] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/sliderCollection")
+    fetch("https://dish-dive-server.vercel.app/sliderCollection")
       .then((res) => res.json())
       .then((data) => {
         const finalSlides = Array.isArray(data) ? data : data.data || [];

@@ -71,7 +71,7 @@ export const router = createBrowserRouter([
             <ReviewsDetails></ReviewsDetails>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/reviews"),
+        loader: () => fetch("https://dish-dive-server.vercel.app/reviews"),
       },
       {
         path: "/addreview",
@@ -98,7 +98,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/reviews/${params.id}`),
+          fetch(`https://dish-dive-server.vercel.app/reviews/${params.id}`),
       },
       {
         path: "/myfavorites",

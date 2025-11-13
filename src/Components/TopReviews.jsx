@@ -9,7 +9,7 @@ const TopReviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/latest-reviews")
+    fetch("https://dish-dive-server.vercel.app/latest-reviews")
       .then((res) => res.json())
       .then((data) => setReviews(data))
       .catch((err) =>

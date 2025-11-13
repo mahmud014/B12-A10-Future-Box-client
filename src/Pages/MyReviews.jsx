@@ -19,7 +19,7 @@ const MyReviews = () => {
 
     setLoading(true);
 
-    fetch(`http://localhost:5000/myreviews?email=${user.email}`)
+    fetch(`https://dish-dive-server.vercel.app/myreviews?email=${user.email}`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch reviews");
         return res.json();
@@ -40,7 +40,9 @@ const MyReviews = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/reviews/${id}`, { method: "DELETE" })
+        fetch(`https://dish-dive-server.vercel.app/reviews/${id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then(() => {
             setReviews(reviews.filter((r) => r._id !== id));
