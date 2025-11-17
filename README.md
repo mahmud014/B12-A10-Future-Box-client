@@ -68,6 +68,6 @@ Hosting / Deployment
 
 Author: Anik Mahmud
 📧 [Your Email or Portfolio link]
-🌍 Live Site: https://dish-dive.vercel.app
+🌍 Live Site: [https://dish-dive.vercel.app](https://dishdive-e699b.web.app/)
 
 ⚙️ API Base URL: https://dish-dive-server.vercel.app
