@@ -64,7 +64,7 @@ npm install
 - VITE_storageBucket=your_storage_bucket
 - VITE_messagingSenderId=your_sender_id
 - VITE_appId=your_app_id
-- VITE_SERVER_URL=https://your-server-url.vercel.app
+- VITE_SERVER_URL=https://dish-dive-server.vercel.app
 
 ### ✅ Step 4: Start development server
 npm run dev
