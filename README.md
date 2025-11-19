@@ -5,7 +5,7 @@ DishDive is a modern web application where users can explore restaurant dishes, 
 ## 🖼️ Screenshot
 
 <p align="center">
-  <img src="https://i.ibb.co/zW3Y11S4/Homepage.png" width="100%" />
+  <img src="https://i.postimg.cc/4dr4wDZ1/Homepage.png" width="100%" />
 </p>
 
 ## 🧩 Tech Stack (Main Technologies)
