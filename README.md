@@ -81,4 +81,4 @@ npm run dev
 - Author: Md. Shukur Mahmud
 - 📧 Email: anik955720@gmail.com
 - 🔗 GitHub: https://github.com/mahmud014
-- 🔗 LinkedIn: https://www.linkedin.com/in/md-shukur-mahmud-387439261/
+- 🔗 LinkedIn: https://www.linkedin.com/in/shukurmahmud
