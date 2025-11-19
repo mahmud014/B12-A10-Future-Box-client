@@ -1,73 +1,84 @@
-🍽️ DishDive – Restaurant Food Review Platform
+## 🍽️ DishDive – Restaurant Food Review Platform
 
-DishDive is a modern web application that allows users to explore, review, and favorite their favorite restaurant dishes.
-Users can browse food reviews, add their own, mark dishes as favorites, and view detailed information for each meal.
+DishDive is a modern web application where users can explore restaurant dishes, read reviews, add their own reviews, and mark favorite items. It provides a clean UI, smooth navigation, and an organized food discovery experience.
 
-🚀 Features
+## 🖼️ Screenshot
 
-🧾 All Reviews Page – Displays all user reviews with search functionality (MongoDB $regex search).
+<p align="center">
+  <img src="https://i.ibb.co/zW3Y11S4/Homepage.png" width="100%" />
+</p>
 
-🔍 Search System – Search by food name; server-side filtering ensures accuracy and performance.
+## 🧩 Tech Stack (Main Technologies)
+### Frontend
+- React (Vite)
+- Tailwind CSS
+- DaisyUI
+- React Router DOM
+- SweetAlert2
+- Firebase Authentication
+- Backend
+- Node.js
+- Express.js
+- MongoDB Atlas
 
-❤️ Favorites System – Add/remove favorites; displayed in a separate “My Favorites” page.
+### ✨ Core Features
 
-👤 User Authentication – Firebase authentication (Google or email/password).
+- Browse all food reviews
+- Search dishes by name
+- Add, edit, delete your own reviews
+- Add and manage favorite items
+- Detailed review page with full info
+- Firebase authentication (Google + Email/Password)
+- Fully responsive design
 
-✏️ Add Review Page – Logged-in users can post new food reviews.
+## 📦 Dependencies
+### Frontend Dependencies
+- react
+- react-dom
+- react-router-dom
+- firebase
+- axios
+- sweetalert2
+- react-icons
 
-🗑️ My Reviews Page – Users can edit or delete their own reviews.
+### Dev Dependencies
+- vite
+- eslint
+- tailwindcss
+- daisyui
+- postcss
+- autoprefixer
 
-💬 Review Details Page – Shows full information about a single food review.
+## 🛠️ How to Run Locally
+### ✅ Step 1: Clone the project
+- Client Side:	https://github.com/mahmud014/B12-A10-Future-Box-client
+- Server Side:	https://github.com/mahmud014/B12-A10-Future-Box-server
 
-🏠 Home Page – Attractive hero slider, featured sections, and restaurant highlights.
+### ✅ Step 2: Install dependencies
+npm install
 
-⚡ Responsive Design – Mobile-friendly UI with TailwindCSS & DaisyUI.
+### ✅ Step 3: Create .env file
+- VITE_apiKey=your_firebase_api_key
+- VITE_authDomain=your_auth_domain
+- VITE_projectId=your_project_id
+- VITE_storageBucket=your_storage_bucket
+- VITE_messagingSenderId=your_sender_id
+- VITE_appId=your_app_id
+- VITE_SERVER_URL=https://your-server-url.vercel.app
 
-🌐 Deployed on Vercel – Both server and client sides are hosted online for global access.
+### ✅ Step 4: Start development server
+npm run dev
 
-🛠️ Tech Stack
-Frontend
 
-⚛️ React (Vite)
+## App will run on:
+👉 http://localhost:5173
 
-🌈 Tailwind CSS
+## 🔗 Live Links
+- 🌍 Live Site: https://dishdive-e699b.web.app/
+- 🗄️ Backend API: https://dish-dive-server.vercel.app
 
-💎 DaisyUI
-
-🔄 React Router DOM
-
-🔔 SweetAlert2 (for alerts & confirmations)
-
-⭐ React Icons (for UI icons)
-
-Backend
-
-🟢 Node.js
-
-🚀 Express.js
-
-🍃 MongoDB (Atlas)
-
-🌐 CORS
-
-🔐 dotenv (for environment variables)
-
-Authentication
-
-🔥 Firebase Authentication (Email/Password, Google)
-
-Hosting / Deployment
-
-🖥️ Frontend: Vercel
-
-🗄️ Backend API: Vercel Server
-
-☁️ Database: MongoDB Atlas
-
-🧑‍💻 Developer
-
-Author: Anik Mahmud
-📧 [Your Email or Portfolio link]
-🌍 Live Site: [https://dish-dive.vercel.app](https://dishdive-e699b.web.app/)
-
-⚙️ API Base URL: https://dish-dive-server.vercel.app
+## 👨‍💻 Developer
+- Author: Md. Shukur Mahmud
+- 📧 Email: anik955720@gmail.com
+- 🔗 GitHub: https://github.com/mahmud014
+- 🔗 LinkedIn: https://www.linkedin.com/in/md-shukur-mahmud-387439261/
